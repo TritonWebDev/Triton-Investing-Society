@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 const pages = [
   { name: 'Home', href: '/' },
@@ -8,12 +9,18 @@ const pages = [
 
 export default function Navbar() {
   return (
-    <nav className="sticky top-0 z-50 bg-white shadow-sm">
+    <nav className="sticky top-0 z-50 bg-white shadow-sm overflow-visible">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* TODO: Add Logo */}
-          <Link href="/" className="text-xl font-bold text-[#001f5c]">
-            Triton Investing Society
+          <Link href="/" className="flex items-start self-start">
+            <Image 
+              src="/logo.png" 
+              alt="Triton Investing Society Logo" 
+              width={200} 
+              height={128}
+              className="h-32 w-auto"
+              priority
+            />
           </Link>
 
           {/* Navigation Links */}
@@ -22,7 +29,7 @@ export default function Navbar() {
               <Link 
                 key={page.href}
                 href={page.href} 
-                className="text-gray-700 hover:text-[#001f5c] hover:bg-[#001f5c] px-4 py-2 rounded-md transition-colors font-bold"
+                className="text-gray-700 hover:text-[#E9DFC3] hover:bg-[#001f5c] px-4 py-2 rounded-md transition-colors font-bold"
               >
                 {page.name}
               </Link>
